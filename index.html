@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nourishing Futures - Feeding Minds, Shaping Futures</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .storybook-title {
+            font-family: 'Fredoka', cursive;
+        }
+        
+        /* Color Transitions */
+        .dark-section {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 30%, #4a5568 70%, #718096 100%);
+        }
+        
+        .transition-section {
+            background: linear-gradient(to bottom, #4a5568 0%, #718096 20%, #a0aec0 40%, #e2e8f0 60%, #fef5e7 80%, #fed7aa 100%);
+        }
+        
+        .light-section {
+            background: linear-gradient(135deg, #fef5e7 0%, #fed7aa 25%, #fbbf24 50%, #f59e0b 75%, #d97706 100%);
+        }
+        
+        .bright-section {
+            background: linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 25%, #34d399 50%, #10b981 75%, #059669 100%);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes grow {
+            0% { transform: scale(0) rotate(-10deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+        
+        @keyframes lightRay {
+            0% { opacity: 0; transform: translateX(-100px) rotate(-5deg); }
+            50% { opacity: 0.7; }
+            100% { opacity: 0; transform: translateX(100px) rotate(5deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        .floating { animation: float 4s ease-in-out infinite; }
+        .floating-delayed { animation: float 4s ease-in-out infinite; animation-delay: 2s; }
+        .sparkle { animation: sparkle 2s ease-in-out infinite; }
+        .grow { animation: grow 0.8s ease-out forwards; }
+        .light-ray { animation: lightRay 3s ease-in-out infinite; }
+        .pulse { animation: pulse 2s ease-in-out infinite; }
+        
+        /* Interactive Elements */
+        .card-3d {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+        
+        .card-3d:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+        
+        .btn-magical {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-magical::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-magical:hover::before {
+            left: 100%;
+        }
+        
+        .btn-magical:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.4);
+        }
+        
+        /* Parallax */
+        .parallax {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        /* Scroll Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #d97706, #b45309);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Hero Section -->
+    <section class="dark-section min-h-full relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <!-- Floating particles -->
+            <div class="absolute top-20 left-10 w-2 h-2 bg-yellow-400 rounded-full sparkle opacity-30"></div>
+            <div class="absolute top-40 right-20 w-3 h-3 bg-green-400 rounded-full sparkle opacity-40" style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-40 left-1/4 w-2 h-2 bg-blue-400 rounded-full sparkle opacity-35" style="animation-delay: 2s;"></div>
+            
+            <!-- Light rays -->
+            <div class="absolute top-0 right-1/3 w-1 h-full bg-gradient-to-b from-transparent via-yellow-200 to-transparent opacity-20 light-ray"></div>
+            <div class="absolute top-0 right-1/2 w-1 h-full bg-gradient-to-b from-transparent via-orange-200 to-transparent opacity-15 light-ray" style="animation-delay: 1.5s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 py-20 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-between min-h-full">
+                <!-- Content -->
+                <div class="lg:w-1/2 text-white mb-12 lg:mb-0 fade-in-up">
+                    <h1 class="storybook-title text-6xl lg:text-8xl font-bold mb-8 leading-tight">
+                        Feeding Minds,<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400">
+                            Shaping Futures
+                        </span>
+                    </h1>
+                    <p class="text-2xl mb-12 text-gray-300 leading-relaxed">
+                        Every child deserves the chance to grow, learn, and thrive. Join us in transforming lives through the magical power of nutrition.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <button class="btn-magical text-white px-8 py-4 rounded-full text-lg font-bold shadow-2xl">
+                            🍎 Donate Now
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-400 text-white px-8 py-4 rounded-full text-lg font-bold shadow-2xl transition-all duration-300 hover:scale-105">
+                            🤝 Volunteer
+                        </button>
+                        <button class="border-2 border-white text-white hover:bg-white hover:text-gray-800 px-8 py-4 rounded-full text-lg font-bold transition-all duration-300">
+                            📖 Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Cinematic Illustration -->
+                <div class="lg:w-1/2 relative">
+                    <div class="relative w-full h-96 lg:h-[500px]">
+                        <!-- Transformation Scene -->
+                        <svg viewBox="0 0 400 400" class="w-full h-full">
+                            <!-- Dark side background -->
+                            <defs>
+                                <linearGradient id="darkGrad" x1="0%" y1="0%" x2="50%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1a202c;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#4a5568;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="lightGrad" x1="50%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge> 
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <!-- Background split -->
+                            <rect x="0" y="0" width="200" height="400" fill="url(#darkGrad)"/>
+                            <rect x="200" y="0" width="200" height="400" fill="url(#lightGrad)"/>
+                            
+                            <!-- Dark side child (struggling) -->
+                            <g class="floating-delayed">
+                                <circle cx="120" cy="150" r="30" fill="#6b7280" opacity="0.8"/>
+                                <rect x="100" y="180" width="40" height="50" rx="20" fill="#6b7280" opacity="0.8"/>
+                                <rect x="110" y="230" width="10" height="30" rx="5" fill="#6b7280" opacity="0.8"/>
+                                <rect x="130" y="230" width="10" height="30" rx="5" fill="#6b7280" opacity="0.8"/>
+                                <!-- Sad expression -->
+                                <path d="M110 155 Q120 165 130 155" stroke="#374151" stroke-width="2" fill="none"/>
+                                <circle cx="115" cy="145" r="2" fill="#374151"/>
+                                <circle cx="125" cy="145" r="2" fill="#374151"/>
+                                <!-- Empty bowl -->
+                                <ellipse cx="120" cy="300" rx="25" ry="10" fill="#4b5563" opacity="0.9"/>
+                            </g>
+                            
+                            <!-- Transformation elements -->
+                            <g class="pulse">
+                                <!-- Magic sparkles -->
+                                <circle cx="180" cy="100" r="3" fill="#fbbf24" filter="url(#glow)" class="sparkle"/>
+                                <circle cx="220" cy="120" r="2" fill="#34d399" filter="url(#glow)" class="sparkle" style="animation-delay: 0.5s;"/>
+                                <circle cx="200" cy="80" r="2" fill="#ef4444" filter="url(#glow)" class="sparkle" style="animation-delay: 1s;"/>
+                                
+                                <!-- Transformation arrow -->
+                                <path d="M160 200 Q200 180 240 200" stroke="#fbbf24" stroke-width="4" fill="none" filter="url(#glow)"/>
+                                <path d="M235 195 L240 200 L235 205" stroke="#fbbf24" stroke-width="4" fill="none"/>
+                            </g>
+                            
+                            <!-- Bright side child (thriving) -->
+                            <g class="floating">
+                                <circle cx="280" cy="150" r="30" fill="#fbbf24"/>
+                                <rect x="260" y="180" width="40" height="50" rx="20" fill="#34d399"/>
+                                <rect x="270" y="230" width="10" height="30" rx="5" fill="#3b82f6"/>
+                                <rect x="290" y="230" width="10" height="30" rx="5" fill="#3b82f6"/>
+                                <!-- Happy expression -->
+                                <path d="M270 160 Q280 170 290 160" stroke="#1f2937" stroke-width="2" fill="none"/>
+                                <circle cx="275" cy="145" r="2" fill="#1f2937"/>
+                                <circle cx="285" cy="145" r="2" fill="#1f2937"/>
+                                <!-- Full bowl with magical fruits -->
+                                <ellipse cx="280" cy="300" rx="25" ry="10" fill="#fbbf24"/>
+                                <circle cx="270" cy="295" r="6" fill="#ef4444" filter="url(#glow)" class="floating"/>
+                                <circle cx="290" cy="295" r="6" fill="#22c55e" filter="url(#glow)" class="floating-delayed"/>
+                                <circle cx="280" cy="290" r="5" fill="#8b5cf6" filter="url(#glow)" class="pulse"/>
+                            </g>
+                            
+                            <!-- Magical elements -->
+                            <g class="floating">
+                                <!-- Books floating around bright child -->
+                                <rect x="320" y="120" width="15" height="20" rx="2" fill="#3b82f6" opacity="0.8"/>
+                                <rect x="315" y="160" width="15" height="20" rx="2" fill="#ef4444" opacity="0.8"/>
+                                <rect x="325" y="200" width="15" height="20" rx="2" fill="#22c55e" opacity="0.8"/>
+                            </g>
+                            
+                            <!-- Growth plants -->
+                            <g class="grow">
+                                <path d="M350 350 Q355 330 360 310 Q365 320 370 310" stroke="#22c55e" stroke-width="3" fill="none"/>
+                                <circle cx="360" cy="305" r="4" fill="#fbbf24" filter="url(#glow)"/>
+                                <path d="M30 350 Q35 340 40 330" stroke="#6b7280" stroke-width="2" fill="none" opacity="0.5"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transition Section -->
+    <div class="transition-section h-32 relative overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-20 h-20 floating">
+                <svg viewBox="0 0 80 80" class="w-full h-full">
+                    <circle cx="40" cy="40" r="30" fill="#fbbf24" opacity="0.3" class="pulse"/>
+                    <path d="M40 20 Q50 30 40 40 Q30 30 40 20" fill="#34d399" class="floating"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- About/Mission Section -->
+    <section class="light-section py-20 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="storybook-title text-5xl lg:text-6xl font-bold text-gray-800 mb-8">Our Mission Story</h2>
+                <p class="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                    We believe that proper nutrition is the magical ingredient that transforms not just bodies, but minds, dreams, and entire communities.
+                </p>
+            </div>
+            
+            <!-- Visual Timeline -->
+            <div class="relative max-w-6xl mx-auto">
+                <!-- Timeline line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-orange-400 to-green-400"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-20">
+                    <!-- Item 1: Problem -->
+                    <div class="flex items-center fade-in-up">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-white rounded-2xl p-8 shadow-xl card-3d">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-4">The Challenge</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Millions of children worldwide face malnutrition, affecting their growth, learning, and future potential.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-20 h-20 bg-orange-400 rounded-full flex items-center justify-center relative z-10 pulse">
+                            <svg width="40" height="40" viewBox="0 0 40 40" class="text-white">
+                                <path d="M20 5 C25 5, 30 10, 30 15 C30 20, 25 25, 20 25 C15 25, 10 20, 10 15 C10 10, 15 5, 20 5 Z" fill="currentColor" opacity="0.7"/>
+                                <path d="M15 18 Q20 23 25 18" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                    
+                    <!-- Item 2: Solution -->
+                    <div class="flex items-center fade-in-up">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center relative z-10 pulse">
+                            <svg width="40" height="40" viewBox="0 0 40 40" class="text-white">
+                                <circle cx="20" cy="15" r="8" fill="currentColor"/>
+                                <ellipse cx="20" cy="30" rx="12" ry="5" fill="currentColor"/>
+                                <circle cx="15" cy="27" r="3" fill="#ef4444"/>
+                                <circle cx="25" cy="27" r="3" fill="#22c55e"/>
+                            </svg>
+                        </div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-white rounded-2xl p-8 shadow-xl card-3d">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Approach</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    We provide nutritious meals, education, and community support to create lasting change.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3: Impact -->
+                    <div class="flex items-center fade-in-up">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-white rounded-2xl p-8 shadow-xl card-3d">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-4">The Transformation</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Children thrive with improved health, better grades, and brighter futures for their families.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-20 h-20 bg-green-400 rounded-full flex items-center justify-center relative z-10 pulse">
+                            <svg width="40" height="40" viewBox="0 0 40 40" class="text-white">
+                                <circle cx="20" cy="15" r="8" fill="currentColor"/>
+                                <path d="M15 18 Q20 23 25 18" stroke="#1f2937" stroke-width="2" fill="none"/>
+                                <circle cx="17" cy="13" r="1" fill="#1f2937"/>
+                                <circle cx="23" cy="13" r="1" fill="#1f2937"/>
+                                <!-- Books -->
+                                <rect x="10" y="25" width="6" height="8" rx="1" fill="currentColor"/>
+                                <rect x="24" y="25" width="6" height="8" rx="1" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating elements -->
+        <div class="absolute top-20 right-10 floating opacity-40">
+            <svg width="60" height="60" viewBox="0 0 60 60">
+                <circle cx="30" cy="30" r="20" fill="#fbbf24" opacity="0.6"/>
+                <path d="M20 30 Q30 20 40 30 Q30 40 20 30" fill="#fff" opacity="0.8"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="bright-section py-20 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="storybook-title text-5xl lg:text-6xl font-bold text-gray-800 mb-8">Our Magical Programs</h2>
+                <p class="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                    Each program is designed to nurture different aspects of a child's growth and development.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Nutrition Program -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl card-3d fade-in-up group">
+                    <div class="w-24 h-24 mx-auto mb-6 relative">
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <circle cx="50" cy="50" r="40" fill="#fef3c7" class="group-hover:pulse"/>
+                            <ellipse cx="50" cy="60" rx="25" ry="15" fill="#fbbf24"/>
+                            <circle cx="40" cy="55" r="5" fill="#ef4444" class="floating"/>
+                            <circle cx="60" cy="55" r="5" fill="#22c55e" class="floating-delayed"/>
+                            <circle cx="50" cy="50" r="4" fill="#8b5cf6" class="pulse"/>
+                            <!-- Magic sparkles -->
+                            <circle cx="25" cy="30" r="2" fill="#fbbf24" class="sparkle"/>
+                            <circle cx="75" cy="35" r="2" fill="#34d399" class="sparkle" style="animation-delay: 0.5s;"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Nutritious Meals</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        Daily balanced meals packed with vitamins, minerals, and love to fuel growing bodies and minds.
+                    </p>
+                    <div class="text-center">
+                        <span class="inline-block bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold">
+                            🍎 50,000+ meals served
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Education Program -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl card-3d fade-in-up group">
+                    <div class="w-24 h-24 mx-auto mb-6 relative">
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <circle cx="50" cy="50" r="40" fill="#dbeafe" class="group-hover:pulse"/>
+                            <!-- Stack of books -->
+                            <rect x="30" y="55" width="40" height="8" rx="2" fill="#3b82f6" class="floating"/>
+                            <rect x="32" y="47" width="36" height="8" rx="2" fill="#22c55e" class="floating-delayed"/>
+                            <rect x="34" y="39" width="32" height="8" rx="2" fill="#ef4444" class="floating"/>
+                            <!-- Brain -->
+                            <path d="M50 25 C60 25, 70 30, 70 40 C70 50, 60 55, 50 55 C40 55, 30 50, 30 40 C30 30, 40 25, 50 25 Z" fill="#8b5cf6" class="pulse"/>
+                            <!-- Knowledge sparkles -->
+                            <circle cx="35" cy="25" r="2" fill="#fbbf24" class="sparkle"/>
+                            <circle cx="65" cy="30" r="2" fill="#34d399" class="sparkle" style="animation-delay: 1s;"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Educational Support</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        Learning programs that complement nutrition with knowledge, skills, and confidence building.
+                    </p>
+                    <div class="text-center">
+                        <span class="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold">
+                            📚 2,500+ students supported
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Health Program -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl card-3d fade-in-up group">
+                    <div class="w-24 h-24 mx-auto mb-6 relative">
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <circle cx="50" cy="50" r="40" fill="#dcfce7" class="group-hover:pulse"/>
+                            <!-- Heart -->
+                            <path d="M50 70 C40 60, 30 50, 30 40 C30 35, 35 30, 40 35 C45 30, 55 30, 60 35 C65 30, 70 35, 70 40 C70 50, 60 60, 50 70 Z" fill="#ef4444" class="pulse"/>
+                            <!-- Health cross -->
+                            <rect x="47" y="25" width="6" height="20" rx="3" fill="#22c55e"/>
+                            <rect x="40" y="32" width="20" height="6" rx="3" fill="#22c55e"/>
+                            <!-- Vitality sparkles -->
+                            <circle cx="25" cy="35" r="2" fill="#fbbf24" class="sparkle"/>
+                            <circle cx="75" cy="40" r="2" fill="#34d399" class="sparkle" style="animation-delay: 0.7s;"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Health Monitoring</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        Regular health check-ups and growth tracking to ensure every child reaches their full potential.
+                    </p>
+                    <div class="text-center">
+                        <span class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold">
+                            💚 95% health improvement
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Community Gardens -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl card-3d fade-in-up group">
+                    <div class="w-24 h-24 mx-auto mb-6 relative">
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <circle cx="50" cy="50" r="40" fill="#fef7ed" class="group-hover:pulse"/>
+                            <!-- Garden bed -->
+                            <rect x="20" y="70" width="60" height="15" rx="5" fill="#92400e"/>
+                            <!-- Growing plants -->
+                            <path d="M30 70 Q35 55 40 70" stroke="#22c55e" stroke-width="3" fill="none" class="floating"/>
+                            <path d="M45 70 Q50 50 55 70" stroke="#22c55e" stroke-width="3" fill="none" class="floating-delayed"/>
+                            <path d="M60 70 Q65 55 70 70" stroke="#22c55e" stroke-width="3" fill="none" class="floating"/>
+                            <!-- Sun -->
+                            <circle cx="70" cy="30" r="12" fill="#fbbf24" class="pulse"/>
+                            <path d="M70 10 L70 18 M88 30 L80 30 M82 18 L77 23 M82 42 L77 37" stroke="#fbbf24" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Community Gardens</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        Teaching families to grow their own nutritious food for sustainable, long-term impact.
+                    </p>
+                    <div class="text-center">
+                        <span class="inline-block bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold">
+                            🌱 150+ gardens established
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Family Support -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl card-3d fade-in-up group">
+                    <div class="w-24 h-24 mx-auto mb-6 relative">
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <circle cx="50" cy="50" r="40" fill="#f3e8ff" class="group-hover:pulse"/>
+                            <!-- Family circle -->
+                            <circle cx="50" cy="50" r="25" fill="#8b5cf6" opacity="0.3" class="floating"/>
+                            <!-- Family members -->
+                            <circle cx="40" cy="40" r="6" fill="#fbbf24"/>
+                            <circle cx="60" cy="40" r="6" fill="#ef4444"/>
+                            <circle cx="50" cy="60" r="5" fill="#22c55e"/>
+                            <circle cx="35" cy="60" r="4" fill="#06b6d4"/>
+                            <circle cx="65" cy="60" r="4" fill="#f59e0b"/>
+                            <!-- Connection lines -->
+                            <line x1="40" y1="46" x2="50" y2="55" stroke="#8b5cf6" stroke-width="2"/>
+                            <line x1="60" y1="46" x2="50" y2="55" stroke="#8b5cf6" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Family Empowerment</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        Supporting entire families with nutrition education, cooking classes, and community building.
+                    </p>
+                    <div class="text-center">
+                        <span class="inline-block bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold">
+                            👨‍👩‍👧‍👦 800+ families supported
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Wellness Activities -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl card-3d fade-in-up group">
+                    <div class="w-24 h-24 mx-auto mb-6 relative">
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <circle cx="50" cy="50" r="40" fill="#ecfdf5" class="group-hover:pulse"/>
+                            <!-- Child playing -->
+                            <circle cx="50" cy="35" r="12" fill="#fbbf24"/>
+                            <rect x="42" y="47" width="16" height="20" rx="8" fill="#34d399"/>
+                            <rect x="46" y="67" width="4" height="15" rx="2" fill="#3b82f6"/>
+                            <rect x="54" y="67" width="4" height="15" rx="2" fill="#3b82f6"/>
+                            <!-- Happy expression -->
+                            <path d="M45 38 Q50 43 55 38" stroke="#1f2937" stroke-width="2" fill="none"/>
+                            <circle cx="47" cy="32" r="1" fill="#1f2937"/>
+                            <circle cx="53" cy="32" r="1" fill="#1f2937"/>
+                            <!-- Activity elements -->
+                            <circle cx="25" cy="25" r="4" fill="#ef4444" class="floating"/>
+                            <rect x="70" y="20" width="8" height="10" rx="2" fill="#8b5cf6" class="floating-delayed"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Wellness Activities</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        Fun physical activities, sports, and play that promote healthy development and joy.
+                    </p>
+                    <div class="text-center">
+                        <span class="inline-block bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold">
+                            ⚽ 1,200+ children active
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-white py-20 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="storybook-title text-5xl lg:text-6xl font-bold text-gray-800 mb-8">Stories of Magic</h2>
+                <p class="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                    Real transformations from families whose lives have been touched by our programs.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 rounded-3xl p-8 shadow-xl card-3d fade-in-up">
+                    <div class="w-20 h-20 mx-auto mb-6">
+                        <svg viewBox="0 0 80 80" class="w-full h-full">
+                            <circle cx="40" cy="30" r="18" fill="#fbbf24"/>
+                            <path d="M30 35 Q40 45 50 35" stroke="#1f2937" stroke-width="2" fill="none"/>
+                            <circle cx="35" cy="28" r="2" fill="#1f2937"/>
+                            <circle cx="45" cy="28" r="2" fill="#1f2937"/>
+                            <rect x="28" y="48" width="24" height="20" rx="12" fill="#22c55e"/>
+                            <!-- Magic sparkles around -->
+                            <circle cx="20" cy="20" r="2" fill="#fbbf24" class="sparkle"/>
+                            <circle cx="60" cy="25" r="2" fill="#34d399" class="sparkle" style="animation-delay: 0.5s;"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-700 italic mb-6 text-center leading-relaxed">
+                        "Maria was always tired and couldn't focus in school. Now she's the top of her class and full of energy! The nutrition program gave her the fuel she needed to shine."
+                    </p>
+                    <div class="text-center">
+                        <p class="text-gray-600 font-semibold">Carmen</p>
+                        <p class="text-gray-500 text-sm">Mother of Maria, Age 8</p>
+                        <div class="flex justify-center mt-2">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 rounded-3xl p-8 shadow-xl card-3d fade-in-up">
+                    <div class="w-20 h-20 mx-auto mb-6">
+                        <svg viewBox="0 0 80 80" class="w-full h-full">
+                            <circle cx="40" cy="30" r="18" fill="#34d399"/>
+                            <path d="M30 35 Q40 45 50 35" stroke="#1f2937" stroke-width="2" fill="none"/>
+                            <circle cx="35" cy="28" r="2" fill="#1f2937"/>
+                            <circle cx="45" cy="28" r="2" fill="#1f2937"/>
+                            <rect x="28" y="48" width="24" height="20" rx="12" fill="#3b82f6"/>
+                            <!-- Books -->
+                            <rect x="15" y="55" width="8" height="10" rx="1" fill="#ef4444" class="floating"/>
+                            <rect x="57" y="50" width="8" height="10" rx="1" fill="#8b5cf6" class="floating-delayed"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-700 italic mb-6 text-center leading-relaxed">
+                        "The program didn't just feed Diego - it taught our whole family how to eat better and grow our own food. We're healthier and happier than ever!"
+                    </p>
+                    <div class="text-center">
+                        <p class="text-gray-600 font-semibold">Roberto</p>
+                        <p class="text-gray-500 text-sm">Father of Diego, Age 10</p>
+                        <div class="flex justify-center mt-2">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 rounded-3xl p-8 shadow-xl card-3d fade-in-up">
+                    <div class="w-20 h-20 mx-auto mb-6">
+                        <svg viewBox="0 0 80 80" class="w-full h-full">
+                            <circle cx="40" cy="30" r="18" fill="#8b5cf6"/>
+                            <path d="M30 35 Q40 45 50 35" stroke="#1f2937" stroke-width="2" fill="none"/>
+                            <circle cx="35" cy="28" r="2" fill="#1f2937"/>
+                            <circle cx="45" cy="28" r="2" fill="#1f2937"/>
+                            <rect x="28" y="48" width="24" height="20" rx="12" fill="#ef4444"/>
+                            <!-- Heart -->
+                            <path d="M40 60 C35 55, 30 50, 30 45 C30 43, 32 41, 35 43 C37 41, 43 41, 45 43 C48 41, 50 43, 50 45 C50 50, 45 55, 40 60 Z" fill="#fbbf24" class="pulse"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-700 italic mb-6 text-center leading-relaxed">
+                        "I used to be sick all the time and missed school. Now I'm strong, I love learning, and I help my mom in our garden every day!"
+                    </p>
+                    <div class="text-center">
+                        <p class="text-gray-600 font-semibold">Ana</p>
+                        <p class="text-gray-500 text-sm">Age 8, Program Participant</p>
+                        <div class="flex justify-center mt-2">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating testimonial elements -->
+        <div class="absolute top-10 left-10 floating opacity-20">
+            <svg width="40" height="40" viewBox="0 0 40 40">
+                <path d="M20 30 C15 25, 10 20, 10 15 C10 13, 12 11, 15 13 C17 11, 23 11, 25 13 C28 11, 30 13, 30 15 C30 20, 25 25, 20 30 Z" fill="#fbbf24"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section class="bright-section py-20 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="storybook-title text-5xl lg:text-6xl font-bold text-gray-800 mb-8">Join Our Magical Mission</h2>
+                <p class="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                    Every contribution creates ripples of change. Choose your way to make magic happen.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+                <!-- Donate -->
+                <div class="text-center fade-in-up">
+                    <div class="w-32 h-32 mx-auto mb-6 relative">
+                        <svg viewBox="0 0 120 120" class="w-full h-full">
+                            <circle cx="60" cy="60" r="50" fill="#fef3c7" class="pulse"/>
+                            <path d="M60 85 C50 75, 40 65, 40 55 C40 50, 45 45, 50 50 C55 45, 65 45, 70 50 C75 45, 80 50, 80 55 C80 65, 70 75, 60 85 Z" fill="#ef4444" class="floating"/>
+                            <circle cx="55" cy="60" r="5" fill="#fbbf24" class="sparkle"/>
+                            <circle cx="65" cy="65" r="5" fill="#fbbf24" class="sparkle" style="animation-delay: 0.5s;"/>
+                            <!-- Magic sparkles -->
+                            <circle cx="30" cy="30" r="3" fill="#34d399" class="sparkle"/>
+                            <circle cx="90" cy="35" r="3" fill="#8b5cf6" class="sparkle" style="animation-delay: 1s;"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">Donate Magic</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Your donation provides meals, healthcare, and education to children who need it most.
+                    </p>
+                    <button class="btn-magical text-white px-8 py-4 rounded-full text-lg font-bold w-full shadow-2xl">
+                        🍎 Donate Now
+                    </button>
+                </div>
+                
+                <!-- Volunteer -->
+                <div class="text-center fade-in-up">
+                    <div class="w-32 h-32 mx-auto mb-6 relative">
+                        <svg viewBox="0 0 120 120" class="w-full h-full">
+                            <circle cx="60" cy="60" r="50" fill="#dcfce7" class="pulse"/>
+                            <path d="M40 75 Q50 60 65 70 Q70 80 65 90 Q55 95 40 85 Z" fill="#34d399" class="floating"/>
+                            <path d="M80 75 Q70 60 55 70 Q50 80 55 90 Q65 95 80 85 Z" fill="#34d399" class="floating-delayed"/>
+                            <path d="M60 80 C55 75, 50 70, 50 65 C50 62, 52 60, 55 62 C57 60, 63 60, 65 62 C68 60, 70 62, 70 65 C70 70, 65 75, 60 80 Z" fill="#ef4444" class="sparkle"/>
+                            <!-- Helper sparkles -->
+                            <circle cx="35" cy="40" r="3" fill="#fbbf24" class="sparkle"/>
+                            <circle cx="85" cy="45" r="3" fill="#8b5cf6" class="sparkle" style="animation-delay: 0.7s;"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">Share Your Time</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Volunteer your skills and time to directly impact children's lives in your community.
+                    </p>
+                    <button class="bg-green-500 hover:bg-green-400 text-white px-8 py-4 rounded-full text-lg font-bold w-full shadow-2xl transition-all duration-300 hover:scale-105">
+                        🤝 Volunteer Today
+                    </button>
+                </div>
+                
+                <!-- Sponsor -->
+                <div class="text-center fade-in-up">
+                    <div class="w-32 h-32 mx-auto mb-6 relative">
+                        <svg viewBox="0 0 120 120" class="w-full h-full">
+                            <circle cx="60" cy="60" r="50" fill="#f3e8ff" class="pulse"/>
+                            <!-- Child figure -->
+                            <circle cx="60" cy="45" r="15" fill="#fbbf24"/>
+                            <rect x="50" y="60" width="20" height="25" rx="10" fill="#34d399"/>
+                            <rect x="55" y="85" width="5" height="15" rx="2" fill="#3b82f6"/>
+                            <rect x="65" y="85" width="5" height="15" rx="2" fill="#3b82f6"/>
+                            <!-- Happy expression -->
+                            <path d="M52 48 Q60 55 68 48" stroke="#1f2937" stroke-width="2" fill="none"/>
+                            <circle cx="56" cy="42" r="2" fill="#1f2937"/>
+                            <circle cx="64" cy="42" r="2" fill="#1f2937"/>
+                            <!-- Protective circle -->
+                            <circle cx="60" cy="60" r="35" stroke="#8b5cf6" stroke-width="3" fill="none" opacity="0.5" class="floating"/>
+                            <!-- Stars -->
+                            <circle cx="30" cy="30" r="3" fill="#fbbf24" class="sparkle"/>
+                            <circle cx="90" cy="35" r="3" fill="#ef4444" class="sparkle" style="animation-delay: 0.3s;"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">Sponsor a Child</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Create a personal connection and follow one child's complete transformation journey.
+                    </p>
+                    <button class="bg-purple-500 hover:bg-purple-400 text-white px-8 py-4 rounded-full text-lg font-bold w-full shadow-2xl transition-all duration-300 hover:scale-105">
+                        💜 Sponsor Now
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Newsletter Signup -->
+            <div class="max-w-2xl mx-auto bg-white rounded-3xl p-8 shadow-2xl fade-in-up">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Stay Connected to the Magic</h3>
+                    <p class="text-gray-600">Get updates on our impact, success stories, and ways to help.</p>
+                </div>
+                <form class="flex flex-col sm:flex-row gap-4" onsubmit="event.preventDefault(); alert('Thank you for joining our magical community! 🌟');">
+                    <input type="email" placeholder="Enter your email address" class="flex-1 px-6 py-4 rounded-full border-2 border-gray-200 focus:border-orange-400 focus:outline-none text-gray-700" required>
+                    <button type="submit" class="btn-magical text-white px-8 py-4 rounded-full font-bold whitespace-nowrap">
+                        ✨ Join the Magic
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Floating elements -->
+        <div class="absolute top-20 left-10 floating opacity-30">
+            <svg width="60" height="60" viewBox="0 0 60 60">
+                <path d="M30 50 Q25 35 20 25 Q25 20 30 25 Q35 20 40 25 Q35 35 30 50" fill="#22c55e"/>
+                <circle cx="30" cy="20" r="4" fill="#fbbf24" class="sparkle"/>
+            </svg>
+        </div>
+        <div class="absolute bottom-20 right-20 floating-delayed opacity-30">
+            <svg width="50" height="50" viewBox="0 0 50 50">
+                <circle cx="25" cy="25" r="20" fill="#fbbf24" opacity="0.6"/>
+                <path d="M15 25 Q25 15 35 25 Q25 35 15 25" fill="#fff" opacity="0.8"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Blog/Updates Section -->
+    <section class="bg-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="storybook-title text-5xl lg:text-6xl font-bold text-gray-800 mb-8">Latest Magic</h2>
+                <p class="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                    Stories, tips, and updates from our community of change-makers.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Blog Post 1 -->
+                <div class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-3xl overflow-hidden shadow-xl card-3d fade-in-up">
+                    <div class="h-48 bg-gradient-to-br from-orange-200 to-yellow-200 relative overflow-hidden">
+                        <svg viewBox="0 0 300 200" class="w-full h-full">
+                            <rect x="0" y="0" width="300" height="200" fill="url(#lightGrad)"/>
+                            <circle cx="150" cy="100" r="30" fill="#fbbf24" class="floating"/>
+                            <path d="M120 110 Q150 90 180 110" stroke="#22c55e" stroke-width="4" fill="none"/>
+                            <circle cx="100" cy="120" r="8" fill="#ef4444" class="pulse"/>
+                            <circle cx="200" cy="120" r="8" fill="#34d399" class="pulse" style="animation-delay: 0.5s;"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">The Science of Nutrition Magic</h3>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                            Discover how proper nutrition creates lasting changes in children's cognitive development and emotional well-being.
+                        </p>
+                        <button class="text-orange-600 font-semibold hover:text-orange-700 transition-colors">
+                            Read More →
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 2 -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl overflow-hidden shadow-xl card-3d fade-in-up">
+                    <div class="h-48 bg-gradient-to-br from-green-200 to-emerald-200 relative overflow-hidden">
+                        <svg viewBox="0 0 300 200" class="w-full h-full">
+                            <rect x="0" y="0" width="300" height="200" fill="#a7f3d0"/>
+                            <rect x="50" y="150" width="200" height="30" rx="5" fill="#92400e"/>
+                            <path d="M80 150 Q90 130 100 150" stroke="#22c55e" stroke-width="3" fill="none" class="floating"/>
+                            <path d="M120 150 Q130 120 140 150" stroke="#22c55e" stroke-width="3" fill="none" class="floating-delayed"/>
+                            <path d="M160 150 Q170 130 180 150" stroke="#22c55e" stroke-width="3" fill="none" class="floating"/>
+                            <circle cx="250" cy="50" r="20" fill="#fbbf24" class="pulse"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Community Gardens Bloom</h3>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                            See how families are growing their own nutritious food and building stronger communities together.
+                        </p>
+                        <button class="text-green-600 font-semibold hover:text-green-700 transition-colors">
+                            Read More →
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 3 -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl overflow-hidden shadow-xl card-3d fade-in-up">
+                    <div class="h-48 bg-gradient-to-br from-purple-200 to-pink-200 relative overflow-hidden">
+                        <svg viewBox="0 0 300 200" class="w-full h-full">
+                            <rect x="0" y="0" width="300" height="200" fill="#ddd6fe"/>
+                            <circle cx="150" cy="80" r="25" fill="#fbbf24"/>
+                            <rect x="135" y="105" width="30" height="35" rx="15" fill="#34d399"/>
+                            <path d="M140 85 Q150 95 160 85" stroke="#1f2937" stroke-width="2" fill="none"/>
+                            <rect x="100" y="120" width="12" height="15" rx="2" fill="#3b82f6" class="floating"/>
+                            <rect x="188" y="115" width="12" height="15" rx="2" fill="#ef4444" class="floating-delayed"/>
+                            <circle cx="80" cy="60" r="4" fill="#fbbf24" class="sparkle"/>
+                            <circle cx="220" cy="70" r="4" fill="#34d399" class="sparkle" style="animation-delay: 0.7s;"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Success Stories: Maria's Journey</h3>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                            Follow Maria's incredible transformation from struggling student to class valedictorian through our program.
+                        </p>
+                        <button class="text-purple-600 font-semibold hover:text-purple-700 transition-colors">
+                            Read More →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-16 relative overflow-hidden">
+        <!-- Background elements -->
+        <div class="absolute inset-0 opacity-10">
+            <svg viewBox="0 0 1200 400" class="w-full h-full">
+                <path d="M100 350 Q150 300 200 350 Q250 300 300 350" stroke="#22c55e" stroke-width="2" fill="none" class="floating"/>
+                <path d="M400 350 Q450 280 500 350 Q550 280 600 350" stroke="#fbbf24" stroke-width="2" fill="none" class="floating-delayed"/>
+                <circle cx="800" cy="100" r="30" fill="#34d399" class="pulse"/>
+                <circle cx="1000" cy="150" r="20" fill="#fbbf24" class="sparkle"/>
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Logo and Mission -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 mr-4">
+                            <svg viewBox="0 0 50 50" class="w-full h-full">
+                                <circle cx="25" cy="25" r="20" fill="#fbbf24" class="pulse"/>
+                                <path d="M25 35 Q20 25 15 15 Q20 10 25 15 Q30 10 35 15 Q30 25 25 35" fill="#22c55e"/>
+                                <circle cx="25" cy="10" r="3" fill="#ef4444" class="sparkle"/>
+                            </svg>
+                        </div>
+                        <h3 class="storybook-title text-3xl font-bold">Nourishing Futures</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed text-lg">
+                        Transforming lives through nutrition, education, and community empowerment. Every child deserves the chance to thrive and reach their magical potential.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors transform hover:scale-110">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors transform hover:scale-110">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors transform hover:scale-110">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6 storybook-title">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors text-lg">About Our Magic</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors text-lg">Our Programs</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors text-lg">Success Stories</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors text-lg">Get Involved</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors text-lg">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6 storybook-title">Connect With Us</h4>
+                    <div class="space-y-4">
+                        <p class="text-gray-300 text-lg flex items-center">
+                            <span class="mr-3">📧</span> magic@nourishingfutures.org
+                        </p>
+                        <p class="text-gray-300 text-lg flex items-center">
+                            <span class="mr-3">📞</span> (555) 123-HOPE
+                        </p>
+                        <p class="text-gray-300 text-lg flex items-center">
+                            <span class="mr-3">🏠</span> 123 Hope Street, Future City
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-400 text-lg">
+                    &copy; 2024 Nourishing Futures. All rights reserved. | Together, we're creating magic through nutrition. ✨
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax scrolling effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax');
+            
+            parallaxElements.forEach(element => {
+                const speed = element.dataset.speed || 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Button click handlers
+        document.querySelectorAll('button').forEach(button => {
+            if (!button.type || button.type !== 'submit') {
+                button.addEventListener('click', function() {
+                    const buttonText = this.textContent.trim();
+                    
+                    if (buttonText.includes('Donate') || buttonText.includes('🍎')) {
+                        alert('✨ Thank you for wanting to create magic through donation! This would redirect to our secure donation portal where you can choose your impact level.');
+                    } else if (buttonText.includes('Volunteer') || buttonText.includes('🤝')) {
+                        alert('🌟 Amazing! Thank you for wanting to volunteer your time and skills. This would take you to our volunteer matching system.');
+                    } else if (buttonText.includes('Sponsor') || buttonText.includes('💜')) {
+                        alert('💖 How wonderful! Child sponsorship creates the deepest impact. This would connect you with children waiting for sponsors.');
+                    } else if (buttonText.includes('Learn More') || buttonText.includes('📖')) {
+                        alert('📚 Great! This would take you to our detailed impact stories and program information.');
+                    } else if (buttonText.includes('Read More')) {
+                        alert('📖 This would open the full blog post with more inspiring details and photos!');
+                    }
+                });
+            }
+        });
+
+        // Add magical cursor trail effect
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.95) { // Only occasionally create sparkles
+                const sparkle = document.createElement('div');
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.width = '4px';
+                sparkle.style.height = '4px';
+                sparkle.style.backgroundColor = '#fbbf24';
+                sparkle.style.borderRadius = '50%';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.zIndex = '9999';
+                sparkle.style.animation = 'sparkle 1s ease-out forwards';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1000);
+            }
+        });
+
+        // Dynamic color transitions based on scroll position
+        window.addEventListener('scroll', () => {
+            const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    // Section is in view, could add dynamic effects here
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98b5ae0f65d085ae',t:'MTc1OTkyNjk0NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
